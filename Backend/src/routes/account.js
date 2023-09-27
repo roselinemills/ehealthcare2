@@ -7,6 +7,6 @@ const authentication = require('../policies/authentication')
 
 router.post("/signup",authentication.register,User.register)
 router.post('/login',User.login)
-router.get("/wallet",wallet.info)
+// router.get("/wallet",wallet.info)
 
 module.exports =router

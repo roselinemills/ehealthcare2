@@ -1,5 +1,5 @@
 const express = require("express");
-const  deposit = require("../controller/deposit");
+
 const  Product= require("../controller/product");
 
 
@@ -8,6 +8,7 @@ const router = express.Router();
 
 
 router.post("/allproduct", Product.getAll);
+router.post("/saved", Product.saveP);
 // router.get("/", orders.getOrder);
 // router.get("/getall", orders.getAll);
 // router.get("/getall/active", orders.active);
