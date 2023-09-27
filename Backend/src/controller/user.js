@@ -11,10 +11,11 @@ function jwtSignUser(user) {
 }
 
 module.exports = {
-  async register(req, res, next) {
+  async register(req, res) {
     try {
+        console.log(req.body)
       const { firstName, lastName, email, password, phone, address } =
-        req.body.user.User;
+        req.body;
 
       const salt = await bcrypt.genSalt(10);
       const pass = await bcrypt.hash(password, salt);
@@ -45,7 +46,7 @@ module.exports = {
       let user = await User.findOne({
         where: { email: email },
       });
-
+console.log(user)
       if (!user) {
         return res.status(403).send({
           error: "Email Does not Exist",
@@ -57,6 +58,7 @@ module.exports = {
         return res.status(403).send({
           error: "wrong Password",
         });
+
       }
 
       const userJson = user.toJSON();
@@ -66,6 +68,7 @@ module.exports = {
       res.status(403).send({
         error: "Login error",
       });
+      console.log(error)
     }
   },
 };
