@@ -5,8 +5,12 @@ export default {
     return Api().post("/product/saved", data);
   },
   getAll() {
-    return Api().post("/product/allproduct");
+    return Api().get("/product/allproduct");
+  },
+  getOne(id){
+    return Api().get(`product/getone/${id}`)
   }
+
 //   getTransaction(info) {
 //     return Api().get("/order", { params: info });
 //   },

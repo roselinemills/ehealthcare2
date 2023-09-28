@@ -8,6 +8,7 @@ import UserPage from './user/userHome'
 import AdminLanding from './admin/adminLanding'
 import AddItem from './admin/additem'
 import ViewItem from './admin/viewitem'
+import EachPro from './admin/eachitem/eachpro'
 
 function App() {
 
@@ -18,7 +19,10 @@ const router =createBrowserRouter(
         <Route element={<Admin/>} path='/admin'>
           <Route element={<AdminLanding/> } index></Route>
           <Route element={<AddItem/>} path='store'></Route>
-          <Route element={<ViewItem/>} path='viewall'></Route>
+          <Route  path='viewall'>
+            <Route element={<ViewItem/>} index></Route>
+            <Route element={<EachPro/>} path="eachitem"></Route>
+          </Route>
         </Route>
         <Route element={<UserPage/>} path='/'></Route>
       </Route>

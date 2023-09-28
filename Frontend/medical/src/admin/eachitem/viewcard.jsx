@@ -7,7 +7,7 @@ function ViewCard() {
     description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut libero iste possimus id voluptatum nisi quibusdam perspiciatis iusto facere omnis, sequi nihil in sunt?",
      category:"Protection", price:17, quantity_available:500, manufacturer:"Yazz comapany", image:linkeds}
     return ( <div>
-        <div>
+        <div className='border'>
 <div>
     <ProductCard product={product}/>
 </div>
