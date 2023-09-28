@@ -6,7 +6,7 @@ function ProductCard({product}) {
 
   return (
     <Card className="mb-3">
-      <Card.Img variant="top" src={image} alt={product_name} />
+      <Card.Img variant="top" src={image} style={{height:'100px',width:'150px'}} alt={product_name} />
       <Card.Body>
         <Card.Title>{product_name}</Card.Title>
         <Card.Text>{description}</Card.Text>

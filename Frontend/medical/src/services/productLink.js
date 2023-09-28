@@ -1,0 +1,27 @@
+import Api from "./Api";
+
+export default {
+  entry(data) {
+    return Api().post("/product/saved", data);
+  },
+  getAll() {
+    return Api().post("/product/allproduct");
+  }
+//   getTransaction(info) {
+//     return Api().get("/order", { params: info });
+//   },
+//   track(id) {
+//     return Api().get(`/order/track/${id}`);
+//   },
+//   getall(book) {
+//     return Api().get("order/getall", book);
+//   },
+//   request(id) {
+//     return Api().put(`order/getall/update`, id);
+//   },
+//   active(id) {
+//     return Api().get(`order/getall/active`,{params:id});
+//   },historyA(id) {
+//     return Api().get(`order/history/agent`,{params:id});
+//   },
+};
