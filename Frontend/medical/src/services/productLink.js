@@ -8,7 +8,13 @@ export default {
     return Api().get("/product/allproduct");
   },
   getOne(id){
-    return Api().get(`product/getone/${id}`)
+    return Api().get(`/product/getone/${id}`)
+  },
+  getupdae(id){
+    return Api().put(`/product/update/${id}`)
+  },
+  getdelete(id){
+    return Api().delete(`/product/delete/${id}`)
   }
 
 //   getTransaction(info) {

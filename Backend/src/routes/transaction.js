@@ -9,7 +9,9 @@ const router = express.Router();
 
 router.get("/allproduct", Product.getAll);
 router.post("/saved", Product.saveP);
-router.get('product/getone/${id}',Product.getOne)
+router.get("/getone/:id",Product.getOne)
+router.put("/update/:id",Product.getUpdate)
+router.delete("/delete/:id",Product.getDelete)
 // router.get("/", orders.getOrder);
 // router.get("/getall", orders.getAll);
 // router.get("/getall/active", orders.active);

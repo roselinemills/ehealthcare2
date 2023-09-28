@@ -43,10 +43,26 @@ try {
     },
     async getOne(req,res){
         try {
-            console.log(req)
+            const item = await Product.findOne({where:{id:req.params.id}})
+            res.send({'item':item})
 
         } catch (error) {
 console.log(error)
+        }
+    },
+    async getUpdate(req,res){
+        try {
+            console.log(req)
+        } catch (error) {
+
+
+        }
+    },
+    async getDelete(req,res){
+        try {
+            console.log(req)
+        } catch (error) {
+
         }
     }
 }

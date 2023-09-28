@@ -9,6 +9,7 @@ import AdminLanding from './admin/adminLanding'
 import AddItem from './admin/additem'
 import ViewItem from './admin/viewitem'
 import EachPro from './admin/eachitem/eachpro'
+import UpdateItem from './admin/eachitem/updateitem'
 
 function App() {
 
@@ -22,6 +23,7 @@ const router =createBrowserRouter(
           <Route  path='viewall'>
             <Route element={<ViewItem/>} index></Route>
             <Route element={<EachPro/>} path="eachitem"></Route>
+            <Route element={<UpdateItem/>} path="edit"></Route>
           </Route>
         </Route>
         <Route element={<UserPage/>} path='/'></Route>
