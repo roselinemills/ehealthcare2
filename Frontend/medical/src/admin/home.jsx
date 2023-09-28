@@ -1,9 +1,12 @@
 import { Outlet } from "react-router-dom";
-
+import AdminNav from "./adminNav";
 function Admin() {
     return (  <div>
-        Am Admin
+        <div><AdminNav/></div>
+        <div className="pt-3">
         <Outlet/>
+        </div>
+
     </div>);
 }
 

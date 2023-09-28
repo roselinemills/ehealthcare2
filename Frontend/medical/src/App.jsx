@@ -5,6 +5,9 @@ import './App.css'
 
 import Admin from './admin/home'
 import UserPage from './user/userHome'
+import AdminLanding from './admin/adminLanding'
+import AddItem from './admin/additem'
+import ViewItem from './admin/viewitem'
 
 function App() {
 
@@ -13,9 +16,9 @@ const router =createBrowserRouter(
     <Route>
       <Route>
         <Route element={<Admin/>} path='/admin'>
-          <Route ></Route>
-          <Route></Route>
-          <Route></Route>
+          <Route element={<AdminLanding/> } index></Route>
+          <Route element={<AddItem/>} path='store'></Route>
+          <Route element={<ViewItem/>} path='viewall'></Route>
         </Route>
         <Route element={<UserPage/>} path='/'></Route>
       </Route>
