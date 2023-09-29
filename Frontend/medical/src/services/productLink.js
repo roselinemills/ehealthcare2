@@ -10,8 +10,8 @@ export default {
   getOne(id){
     return Api().get(`/product/getone/${id}`)
   },
-  getupdae(id){
-    return Api().put(`/product/update/${id}`)
+  getupdate(id,data){
+    return Api().put(`/product/update/${id}`,data)
   },
   getdelete(id){
     return Api().delete(`/product/delete/${id}`)

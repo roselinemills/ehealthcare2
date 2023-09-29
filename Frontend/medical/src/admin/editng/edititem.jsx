@@ -1,24 +1,24 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import productLink from "../services/productLink";
-
-function AddItem() {
+import productLink from "../../services/productLink";
 
 
+function EditInput({product}) {
+console.log(product)
   const [inputs, setInput] = useState({
-    product_name: "",
-    description: "",
-    category: "",
-    price: "",
-    quantity_available: "",
-    manufacturer: "",
-    image: "", // For file input, initialize to null
+    product_name: product?.product_name,
+    description: product?.description,
+    category: product?.category,
+    price: product?.price,
+    quantity_available:product?.quantity_available,
+    manufacturer: product?.manufacturer,
+    image: product?.image, // For file input, initialize to null
   });
   return (
     <div>
       <div>
-        <h2 className="fw-bold">Product Entry Point</h2>
+        <h2 className="fw-bold">Product Editing</h2>
       </div>
       <div className="d-flex justify-content-center align-items-center ">
         <Form className="p-4" style={{ minWidth: "600px" }}>
@@ -128,9 +128,9 @@ function AddItem() {
             onClick={async (e) => {
               e.preventDefault();
               try {
-                await productLink.entry(inputs);
+                await productLink.getupdate(product?.id,inputs);
               } catch (error) {
-                console.log("Error in Data Entry");
+                console.log("Error in Upadating Data");
               }
             }}
           >
@@ -142,4 +142,4 @@ function AddItem() {
   );
 }
 
-export default AddItem;
+export default EditInput;

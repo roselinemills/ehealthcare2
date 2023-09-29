@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import productLink from "../../services/productLink";
+import EditInput from "../editng/edititem";
 
 function UpdateItem() {
     const [info,setInfo]= useState()
@@ -15,7 +16,7 @@ function UpdateItem() {
         fetchAll()
     },[])
     return (  <div>
-        this the update sections
+        <EditInput product={info}/>
     </div>);
 }
 
