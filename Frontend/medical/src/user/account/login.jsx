@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import account from "../../services/account";
+// import { useDispatch,useSelector, useStore } from "react-redux";
+import { login } from "../../features/details";
+import { useDispatch } from "react-redux";
 
 function LoginUser () {
+  let dispatch = useDispatch()
     const navigate = useNavigate()
     const [inputs,setInput]=useState({
         email:'',
@@ -39,7 +43,10 @@ function LoginUser () {
     onClick={async (e) => {
         e.preventDefault();
         try {
-          await account.log(inputs);
+          const response =await account.log(inputs);
+          dispatch(login(response.data))
+          console.log(response)
+
           navigate('/')
         } catch (error) {
           console.log("Error in Data Entry");
