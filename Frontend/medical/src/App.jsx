@@ -43,11 +43,12 @@ const router =createBrowserRouter(
           {alogged?"":<Route element={<LoginAdmin/>} path='login'></Route>}
           {alogged?"":<Route element={<SignupAdmin/>} path='create'></Route>}
           <Route  path='viewall'>
-            <Route element={<AuthProvider/>}>
+
             <Route element={<ViewItem/>} index></Route>
             <Route element={<EachPro/>} path="eachitem"></Route>
             <Route element={<UpdateItem/>} path="edit"></Route>
-            </Route>
+            {/* <Route element={<AuthProvider/>}>
+            </Route> */}
 
           </Route>
         </Route>

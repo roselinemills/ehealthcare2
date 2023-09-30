@@ -13,6 +13,7 @@ function ViewItem() {
         }
         fetchAll()
     },[])
+    console.log(info,"jsadfjslfjaklsjflkajslfasjldfjalskf")
     return ( <div>
         <div>
             <div className="row">
