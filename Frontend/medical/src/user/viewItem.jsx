@@ -6,6 +6,7 @@ import NewCard from "../components/Cards/newcard";
 function ViewItems() {
     const [info, setInfo] = useState();
     const location = useLocation();
+    let product =location.state.e
     useEffect(() => {
       const getInfo = async () => {
         let response = (await productLink.getOne(location.state.id)).data;
@@ -15,7 +16,7 @@ function ViewItems() {
     }, []);
     return (  <div>
 
-<NewCard product={info}/>
+<NewCard product={product}/>
     </div>);
 }
 

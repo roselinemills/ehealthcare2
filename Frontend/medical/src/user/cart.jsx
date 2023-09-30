@@ -1,84 +1,53 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../context/cart';
+import { useLocation, useNavigate } from 'react-router-dom';
 function Cart({showModal, toggle,prod}) {
-
-
-    const handleRemoveFromCart = (product) => {
-        removeFromCart(product)
-        // notifyRemovedFromCart(product)
-      }
-
-  return (
-    (
-        <div className="flex-col flex items-center fixed inset-0 left-1/4 bg-white dark:bg-black gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm">
-          {/* <ToastContainer /> */}
-          <h1 className="text-2xl font-bold">Cart</h1>
-          <div className="absolute right-16 top-10">
-            <button
-              className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-              onClick={toggle}
-            >
-              Close
-            </button>
-          </div>
-          <div className="flex flex-col gap-4">
-            {cartItems?.map((item) => (
-              <div className="flex justify-between items-center" key={item.id}>
-                <div className="flex gap-4">
-                  <img src={item.thumbnail} alt={item.title} className="rounded-md w-24 h-24" />
-                  <div className="flex gap-8 justify-center">
-                    <h1 className="text-lg font-bold">{item.title}</h1>
-                    <p className="text-gray-600">${item.price}</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <button
-                    className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                    onClick={() => {
-                      addToCart(item)
-                    }}
-                  >
-                    +
-                  </button>
-                  <p>{item.quantity}</p>
-                  <button
-                    className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                    onClick={() => {
-                      const cartItem = cartItems.?find((product) => product.id === item.id);
-                      if (cartItem.quantity === 1) {
-                        handleRemoveFromCart(item);
-                      } else {
-                        removeFromCart(item);
-                      }
-                    }}
-                  >
-                    -
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+const navigate = useNavigate()
+const info = useLocation()
+let product =info.state?.cartItems
+   const getCartTotal = () => {
+       return product.reduce((total, item) => total + item.price * item.quantity, 0);
+       };
+       useEffect(()=>{
+        getCartTotal()
+      },[])
+    let  total =getCartTotal()
+return(
+<div className='d-flex justify-content-center pt-5'>
+<div className="col-md-4 col-lg-4 order-md-last">
+        <h4 className="d-flex justify-content-between align-items-center mb-3">
+          <span className="text-primary">Your cart</span>
+          <span className="badge bg-primary rounded-pill">{product.length}</span>
+        </h4>
+        <ul className="list-group mb-3">
           {
-            cartItems.length > 0 ? (
-              <div className="flex flex-col justify-between items-center">
-            <h1 className="text-lg font-bold">Total: ${getCartTotal()}</h1>
-            <button
-              className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-              onClick={() => {
-                clearCart()
-                // notifyCartCleared()
-              }}
-            >
-              Clear cart
-            </button>
-          </div>
-            ) : (
-              <h1 className="text-lg font-bold">Your cart is empty</h1>
-            )
+            product.map((e,id)=>(
+<li key={id} className="list-group-item d-flex justify-content-between lh-sm">
+  <div>
+    <img src={e.image} alt="" style={{width:'3em'}} />
+  </div>
+            <div>
+              <h6 className="my-0">{e.product_name}</h6>
+            </div>
+            <span className="text-body-secondary">Gh{e.price} * {e.quantity} = {e.price *e.quantity}</span>
+          </li>
+            ))
           }
-        </div>
-      )
-  );
-}
+
+        </ul>
+        <div className='text-center'> <h6>Total : {getCartTotal()}</h6></div>
+
+        <form className="card p-2">
+          <div className="input-group">
+
+            <button type="submit" className="btn btn-secondary" onClick={()=>{navigate('/epay', {state:{figure:total}})}}>Make Payment</button>
+          </div>
+        </form>
+      </div>
+</div>
+
+)
+
+    }
 
 export default Cart;

@@ -1,8 +1,7 @@
 function NewCard({product}) {
-
-
-    return (  <div>
-        <div className="row">
+console.log(product)
+    return (  <div className="d-flex justify-content-center pt-8 px-5">
+        <div>        <div  >
             <div>
                 <img src={product?.image} alt="" />
             </div>
@@ -12,10 +11,12 @@ function NewCard({product}) {
                 <div>{product?.price}</div>
             </div>
         </div>
-        <div>
+        <div className="justify-content-center">
             <h4>Description</h4>
             <div>{product?.description}</div>
         </div>
+        </div>
+
     </div>);
 }
 

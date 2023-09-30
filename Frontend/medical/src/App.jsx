@@ -20,6 +20,9 @@ import { useSelector } from "react-redux";
 
 import { loggin, logginA, selectAdmin, selectUser } from './features/details'
 import AuthProvider from './util/auth'
+import LogProvider from './util/lauth'
+import Cart from './user/cart'
+import Payment from './user/payment'
 
 function App() {
 
@@ -29,7 +32,7 @@ function App() {
   // let navigate = useNavigate()
 
 
-console.log(logged,"Loggggggg")
+
 const router =createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -51,8 +54,14 @@ const router =createBrowserRouter(
         <Route element={<UserPage/>} path='/'>
           <Route element={<UserLanding/>} index></Route>
           <Route element={<ViewItems/>} path="eachitem"></Route>
-         {logged?<Route element={<UserLanding/>} index></Route>: <Route element={<LoginUser/>} path='login'></Route>}
-         {logged?<Route element={<UserLanding/>} index></Route>:<Route element={<SignupUser/>} path='create'></Route>}
+          <Route element={<Cart/>} path='cart'></Route>
+          <Route element={<Payment />} path='epay'></Route>
+
+          <Route element={<LogProvider/>}>
+          <Route element={<LoginUser/>} path='login'></Route>
+          <Route element={<SignupUser/>} path='create'></Route>
+          </Route>
+
         </Route>
       </Route>
     </Route>

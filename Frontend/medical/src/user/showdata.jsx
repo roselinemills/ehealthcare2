@@ -14,11 +14,12 @@ function ShowData({addToCart,info,text,selectedCategory}) {
 
         return productNameMatches && categoryMatches;
       });
-    return ( <div>
+    return ( <div className="row">
          {display?.map((e,id)=>(
-            <div key={id} className="col-md-4 mb-5">
-                <div onClick={()=>{navigate('eachitem',{state:{id:info?.id}})}} ><ProductCard product={e}/></div>
-                <div><button onClick={()=>{addToCart(e)}}>Add to cart</button></div>
+
+            <div key={id} className="col-md-3  mb-5 ">
+                <div onClick={()=>{navigate('/eachitem',{state:{e}})}} ><ProductCard product={e}/></div>
+                <div><button className="px-2" onClick={()=>{addToCart(e)}}>Add to cart</button></div>
             </div>
         ))}
     </div>  );

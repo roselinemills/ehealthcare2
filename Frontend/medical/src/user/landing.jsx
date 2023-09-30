@@ -60,9 +60,7 @@ function UserLanding() {
     //     setCartItems([]);
     //   };
 
-    //   const getCartTotal = () => {
-    //     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    //   };
+
 
 
 
@@ -70,8 +68,9 @@ function UserLanding() {
 
 const navigate =useNavigate()
 
-    return ( <div>
-        <div><button>carts</button>
+    return ( <div className=" d-flex justify-content-around" >
+      <div>
+        <div><button onClick={()=>navigate('cart',{state:{cartItems}})}>carts</button>
         <div>
 <div className="d-flex justify-content-center">
 <div><Search setSearchTerm={setSearchTerm} searchTerm={searchTerm}/></div>
@@ -85,11 +84,14 @@ const navigate =useNavigate()
         ))}
             </div>
             </div>
-        <div className="row">
-       <ShowData info={info} addToCart={addToCart} selectedCategory={change} text={searchTerm}/>
+        <div className=" d-flex justify-content-center   " >
+          <div>
+          <ShowData  info={info} addToCart={addToCart} selectedCategory={change} text={searchTerm}/>
+          </div>
+
 
         </div>
-
+        </div>
     </div> );
 }
 
