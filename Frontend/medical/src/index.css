@@ -1,5 +1,22 @@
-/* *{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
+
+.adminbtn{
+  border: none;
+  width: 10em;
+  color: #9a031e;
+  background: #fb8b84;
+}
+.cards{
+  width: 18em;
+}
+
+.aviewbtn{
+  width: 5em;
+  color: #9a031e;
+
+
+}

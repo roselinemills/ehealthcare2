@@ -1,6 +1,6 @@
 function NewCard({product}) {
 console.log(product)
-    return (  <div className="d-flex justify-content-center pt-8 px-5">
+    return (  <div className="d-flex justify-content-center">
         <div>        <div  >
             <div>
                 <img src={product?.image} alt="" />

@@ -14,12 +14,15 @@ function ShowData({addToCart,info,text,selectedCategory}) {
 
         return productNameMatches && categoryMatches;
       });
-    return ( <div className="row">
+    return ( <div className="d-flex flex-wrap justify-content-center" >
          {display?.map((e,id)=>(
 
-            <div key={id} className="col-md-3  mb-5 ">
+            <div key={id}  className="d-flex m-3 justify-content-center cards " style={{width:"15em",background:''}}>
+                <div>
                 <div onClick={()=>{navigate('/eachitem',{state:{e}})}} ><ProductCard product={e}/></div>
-                <div><button className="px-2" onClick={()=>{addToCart(e)}}>Add to cart</button></div>
+                <div className=" d-flex justify-content-center"><button className=" py-2 px-3 my-2" style={{backgroundColor:"#0000ff",color:'#fff',border:'none'}} onClick={()=>{addToCart(e)}}>Add to cart</button></div>
+
+                </div>
             </div>
         ))}
     </div>  );

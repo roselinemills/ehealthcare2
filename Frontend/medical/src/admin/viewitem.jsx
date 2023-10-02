@@ -13,12 +13,12 @@ function ViewItem() {
         }
         fetchAll()
     },[])
-    console.log(info,"jsadfjslfjaklsjflkajslfasjldfjalskf")
+
     return ( <div>
         <div>
-            <div className="row">
+            <div className="d-flex flex-wrap justify-content-center">
                 {info.map((e,id)=>(
-                 <div key={id}  className="col-md-4 mb-5">
+                 <div key={id}  className="d-flex m-3 justify-content-center cards border">
                 <ViewCard product={e}/>
                 </div>)) }
             </div>
