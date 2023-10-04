@@ -20,7 +20,7 @@ function ShowData({addToCart,info,text,selectedCategory}) {
             <div key={id}  className="d-flex m-3 justify-content-center cards " style={{width:"15em",background:''}}>
                 <div>
                 <div onClick={()=>{navigate('/eachitem',{state:{e}})}} ><ProductCard product={e}/></div>
-                <div className=" d-flex justify-content-center"><button className=" py-2 px-3 my-2" style={{backgroundColor:"#0000ff",color:'#fff',border:'none'}} onClick={()=>{addToCart(e)}}>Add to cart</button></div>
+                <div className=" d-flex justify-content-center"><button className=" py-2 px-3 my-2" style={{backgroundColor:" #6394F8",color:'#fff',border:'none'}} onClick={()=>{addToCart(e)}}><i className="bi bi-cart4"></i> Add to cart</button></div>
 
                 </div>
             </div>

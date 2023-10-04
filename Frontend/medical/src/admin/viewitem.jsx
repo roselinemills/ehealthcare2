@@ -18,7 +18,7 @@ function ViewItem() {
         <div>
             <div className="d-flex flex-wrap justify-content-center">
                 {info.map((e,id)=>(
-                 <div key={id}  className="d-flex m-3 justify-content-center cards border">
+                 <div key={id}  className="d-flex m-3 justify-content-center cards ">
                 <ViewCard product={e}/>
                 </div>)) }
             </div>

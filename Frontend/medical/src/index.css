@@ -1,8 +1,4 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 .adminbtn{
   border: none;
@@ -12,6 +8,10 @@
 }
 .cards{
   width: 18em;
+  /* box-shadow: 0 5px 5px rgba(0,0,0,0.5); */
+  padding-top:5px;
+  padding-bottom: 5px;
+background-color: #ffff;
 }
 
 .aviewbtn{

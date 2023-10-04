@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 import Search from "./search";
 import ShowData from "./showdata";
 import Dropdown from "./dropdown";
+import Cart from "./cart";
 
 function UserLanding() {
     const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [])
     const [info,setInfo]=useState([])
     const [searchTerm, setSearchTerm] = useState('');
     const [change, setChange]=useState('')
+    const [show , setShow] =useState(false)
 
     useEffect(()=>{
         const fetchAll =async()=>{
@@ -19,7 +21,9 @@ function UserLanding() {
         }
         fetchAll()
     },[])
-
+const modelHandler=()=>{
+  setShow(!show)
+}
     const addToCart = (item) => {
         const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
@@ -56,9 +60,9 @@ function UserLanding() {
 
 
 
-    //   const clearCart = () => {
-    //     setCartItems([]);
-    //   };
+      const clearAll = () => {
+        setCartItems([]);
+      };
 
 
 
@@ -68,23 +72,25 @@ function UserLanding() {
 
 const navigate =useNavigate()
 
-    return ( <div className=" d-flex justify-content-around" >
+    return ( <div className=" d-flex justify-content-around " style={{position:'relative'}} >
       <div>
-        <div><button onClick={()=>navigate('cart',{state:{cartItems}})}>carts</button>
         <div>
-<div className="d-flex justify-content-center">
-<div><Search setSearchTerm={setSearchTerm} searchTerm={searchTerm}/></div>
-<div><Dropdown change={change} setChange={setChange}/></div>
+        <div>
+<div className="d-flex justify-content-around ">
+  <div className="d-flex justify-content-center ">
+  <div style={{width:'30em'}}><Search setSearchTerm={setSearchTerm} searchTerm={searchTerm}/></div>
+<div style={{width:'5em'}}><Dropdown change={change} setChange={setChange}/></div>
+  </div>
+  <div>
+  <button style={{width:'5em',height:'2em', fontSize:'1.5em',
+  border:'none',background:'#ff9f1c' ,color:'white'}} onClick={()=>modelHandler()}><i className="bi bi-cart4"></i> </button>
+  </div>
+
 </div>
 
-        {cartItems.map((e,id) =>(
-            <div key={id}>{e.product_name} :{e.quantity} <span onClick={()=>{
-                removeFromCart(e)
-            }}>*</span></div>
-        ))}
             </div>
             </div>
-        <div className=" d-flex justify-content-center   " >
+        <div className=" d-flex justify-content-center" style={{maxWidth:"55em"}} >
           <div>
           <ShowData  info={info} addToCart={addToCart} selectedCategory={change} text={searchTerm}/>
           </div>
@@ -92,6 +98,9 @@ const navigate =useNavigate()
 
         </div>
         </div>
+        {show &&<diV  style={{position:"absolute",right:'10px',top:'45px'}} >
+<Cart product={cartItems} removeFromCart={removeFromCart} clearAll={clearAll} />
+</diV>}
     </div> );
 }
 

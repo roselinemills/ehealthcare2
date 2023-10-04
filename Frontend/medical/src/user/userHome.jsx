@@ -4,7 +4,7 @@ import UserNav from "./userNav";
 function UserPage() {
     return ( <div>
 <div><UserNav/></div>
-<div className=" d-flex justify-content-center  pt-3">
+<div className="pt-4 " >
 <Outlet/>
 </div>
 

@@ -14,7 +14,7 @@ function ViewItems() {
       };
       getInfo();
     }, []);
-    return (  <div>
+    return (  <div className="d-flex justify-content-center">
 
 <NewCard product={product}/>
     </div>);

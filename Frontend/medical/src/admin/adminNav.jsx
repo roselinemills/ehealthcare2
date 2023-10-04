@@ -38,8 +38,7 @@ function AdminNav() {
             <div className="d-flex flex-column flex-lg-row">
             <div> <button className="btn" onClick={()=>navigate('login')}>Login</button></div>
               <div> <button className="btn" onClick={()=>navigate('create')}>Signup</button></div>
-              {/* <button className="btn" onClick={()=>navigate('login')}>Login</button>
-              <button className="btn" onClick={()=>navigate('create')}>Signup</button> */}
+
             </div>
           </a></li>
         </ul>
