@@ -1,8 +1,12 @@
 
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { loggin, login, logout } from "../features/details";
 function UserNav() {
-
+const dispatch = useDispatch()
 const navigate= useNavigate()
+const logs = useSelector(loggin)
+console.log(logs)
     return (  <div>
 
 
@@ -36,9 +40,13 @@ const navigate= useNavigate()
           <li className="nav-item">
             {/* <svg className="bi" width="24" height="24"><use xlinkHref="#cart"></use></svg> */}
             <div className="d-flex flex-column flex-lg-row">
+           {!logs? <>
             <div> <button className="btn" onClick={()=>navigate('login')}>Login</button></div>
               <div> <button className="btn" onClick={()=>navigate('create')}>Signup</button></div>
-              <div> <button className="btn" onClick={()=>navigate('create')}>Logout</button></div>
+        </> :
+            <div> <button className="btn" onClick={()=>{
+                dispatch(logout(null))
+                navigate('login')}}>Logout</button></div>}
             </div>
           </li>
         </ul>
