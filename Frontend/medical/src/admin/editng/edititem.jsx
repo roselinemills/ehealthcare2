@@ -2,26 +2,27 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import productLink from "../../services/productLink";
+import { useNavigate } from "react-router-dom";
 
-
-function EditInput({product}) {
-console.log(product)
+function EditInput({ product }) {
+  const navigate = useNavigate();
+  const [spin, setSpin] = useState(false);
   const [inputs, setInput] = useState({
     product_name: product?.product_name,
     description: product?.description,
     category: product?.category,
     price: product?.price,
-    quantity_available:product?.quantity_available,
+    quantity_available: product?.quantity_available,
     manufacturer: product?.manufacturer,
     image: product?.image, // For file input, initialize to null
   });
   return (
     <div>
       <div>
-        <h2 className="fw-bold">Product Editing</h2>
+        <h2 className="fw-bold ">Product Editing</h2>
       </div>
       <div className="d-flex justify-content-center align-items-center ">
-        <Form className="p-4" style={{ minWidth: "600px" }}>
+        <Form className="p-4" style={{ minWidth: "30em" }}>
           <Form.Group className="mt-3 mb-3 ">
             <Form.Label className="fw-bold fs-5">Product Name</Form.Label>
             <Form.Control
@@ -127,14 +128,22 @@ console.log(product)
             variant="primary"
             onClick={async (e) => {
               e.preventDefault();
+              setSpin(true);
               try {
-                await productLink.getupdate(product?.id,inputs);
+                await productLink.getupdate(product?.id, inputs);
+                navigate("viewall");
               } catch (error) {
                 console.log("Error in Upadating Data");
+              } finally {
+                setSpin(false);
               }
             }}
           >
-            Submit
+            {spin ? (
+              <div className="spinner-border" role="status"></div>
+            ) : (
+              "Save Change"
+            )}
           </Button>
         </Form>
       </div>

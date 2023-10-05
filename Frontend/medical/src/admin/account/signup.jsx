@@ -23,7 +23,7 @@ function SignupAdmin() {
           className="h3 mb-3 fw-normal text-center"
           style={{ color: "black" }}
         >
-          Please Signup
+          Please Signup As Administrator
         </h1>
 
         <div>

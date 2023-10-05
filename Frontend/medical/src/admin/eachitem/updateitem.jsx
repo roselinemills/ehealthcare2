@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
+
 import { useLocation } from "react-router-dom";
-import productLink from "../../services/productLink";
+
 import EditInput from "../editng/edititem";
 
 function UpdateItem() {
-    const [info,setInfo]= useState()
-    const location = useLocation()
-    useEffect(()=>{
-        const fetchAll=async()=>{
-            const response =(await productLink.getOne(1)).data
-            console.log(response.item)
-            setInfo(response.item)
 
-        }
-        fetchAll()
-    },[])
-    return (  <div>
+    const location = useLocation()
+    let info =location.state?.e
+
+    return (  <div className="d-flex justify-content-center  py-4 px-3 text-center" style={{color:'black' }} >
         <EditInput product={info}/>
     </div>);
 }

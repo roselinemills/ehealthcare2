@@ -14,7 +14,7 @@ function ViewCard({product}) {
 </div>
         <div className="d-flex  justify-content-between  py-3 px-2" style={{width:"14em"}}>
         <div className=''>
-          <button className='aviewbtn btn ' style={{fontSize:'0.9em',border:'1px solid #006400', color:'#006400'}}  onClick={()=>{navigate('edit',{state:{id:1}})}} >
+          <button className='aviewbtn btn ' style={{fontSize:'0.9em',border:'1px solid #006400', color:'#006400'}}  onClick={()=>{navigate('edit',{state:{e}})}} >
             Edit
           </button>
         </div>

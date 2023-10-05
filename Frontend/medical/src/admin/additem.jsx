@@ -17,12 +17,12 @@ const navigate=useNavigate()
     image: "", // For file input, initialize to null
   });
   return (
-    <div className="py-4 px-3" style={{color:'black'}}>
+    <div className="py-4 px-3 text-center" style={{color:'black'}}>
       <div>
         <h2 className="fw-bold text-center">Product Entry Point</h2>
       </div>
       <div className="d-flex justify-content-center align-items-center ">
-        <Form className="p-4" style={{ minWidth: "600px" }}>
+        <Form className="p-4" style={{ minWidth: "30em" }}>
           <Form.Group className="mt-3 mb-3 ">
             <Form.Label className="fw-bold fs-5">Product Name</Form.Label>
             <Form.Control

@@ -28,7 +28,7 @@ function LoginAdmin () {
           className="h3 mb-3 fw-normal text-center"
           style={{ color: "black" }}
         >
-          Please sign in
+         Login As Administrator
         </h1>
 
         <div className="form-floating py-3">
