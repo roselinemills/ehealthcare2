@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import productLink from "../../services/productLink";
 import EachCard from "../../components/Cards/eachcard";
+import NewCard from "../../components/Cards/newcard";
 
 function EachPro() {
   const [info, setInfo] = useState();
@@ -16,7 +17,8 @@ function EachPro() {
   console.log(info);
   return (
     <div>
-      <EachCard product={info} />
+      Maddmr
+      {/* <NewCard product={info} /> */}
     </div>
   );
 }

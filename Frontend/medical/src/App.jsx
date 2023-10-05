@@ -45,7 +45,7 @@ const router =createBrowserRouter(
           <Route  path='viewall'>
 
             <Route element={<ViewItem/>} index></Route>
-            <Route element={<EachPro/>} path="eachitem"></Route>
+            <Route element={<EachPro/>} path="each"></Route>
             <Route element={<UpdateItem/>} path="edit"></Route>
             {/* <Route element={<AuthProvider/>}>
             </Route> */}

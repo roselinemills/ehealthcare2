@@ -2,10 +2,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import productLink from "../services/productLink";
+import { useNavigate } from "react-router-dom";
 
 function AddItem() {
-
-
+const navigate=useNavigate()
+  const [spin, setSpin] = useState(false);
   const [inputs, setInput] = useState({
     product_name: "",
     description: "",
@@ -16,9 +17,9 @@ function AddItem() {
     image: "", // For file input, initialize to null
   });
   return (
-    <div>
+    <div className="py-4 px-3" style={{color:'black'}}>
       <div>
-        <h2 className="fw-bold">Product Entry Point</h2>
+        <h2 className="fw-bold text-center">Product Entry Point</h2>
       </div>
       <div className="d-flex justify-content-center align-items-center ">
         <Form className="p-4" style={{ minWidth: "600px" }}>
@@ -127,14 +128,22 @@ function AddItem() {
             variant="primary"
             onClick={async (e) => {
               e.preventDefault();
+              setSpin(true);
               try {
                 await productLink.entry(inputs);
+                navigate('viewall')
               } catch (error) {
                 console.log("Error in Data Entry");
+              }finally {
+                setSpin(false);
+
               }
             }}
-          >
-            Submit
+          >{spin ? (
+            <div className="spinner-border" role="status"></div>
+          ) : (
+            "Submit"
+          )}
           </Button>
         </Form>
       </div>

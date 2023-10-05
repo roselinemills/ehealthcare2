@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 function ViewCard({product}) {
   const navigate = useNavigate()
+  let e = product
   console.log(navigate)
    return ( <div>
 
-<div>
+<div onClick={()=>{navigate('each',{state:{e}})}} >
     <ProductCard product={product}/>
 </div>
         <div className="d-flex  justify-content-between  py-3 px-2" style={{width:"14em"}}>
