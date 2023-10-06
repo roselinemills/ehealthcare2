@@ -18,7 +18,7 @@ import LoginAdmin from './admin/account/login'
 import SignupAdmin from './admin/account/signup'
 import { useSelector } from "react-redux";
 
-import { loggin, logginA, selectAdmin, selectUser } from './features/details'
+import {  logginA, selectAdmin} from './features/details'
 import AuthProvider from './util/auth'
 import LogProvider from './util/lauth'
 import Cart from './user/cart'
@@ -27,13 +27,9 @@ import CartAuth from './util/cartAuth'
 
 function App() {
 
-  let logged = useSelector(loggin);
 
   let alogged = useSelector(logginA)
   console.log(useSelector(selectAdmin))
-  // let navigate = useNavigate()
-
-
 
 const router =createBrowserRouter(
   createRoutesFromElements(
@@ -45,10 +41,10 @@ const router =createBrowserRouter(
           <Route element={<AdminLanding/> } index></Route>
           <Route element={<AddItem/>} path='store'></Route>
           <Route  path='viewall'>
-
             <Route element={<ViewItem/>} index></Route>
-            <Route element={<EachPro/>} path="each"></Route>
+            <Route element={<EachPro/>} path="eachitem"></Route>
             <Route element={<UpdateItem/>} path="edit"></Route>
+
 
           </Route>
             </Route>

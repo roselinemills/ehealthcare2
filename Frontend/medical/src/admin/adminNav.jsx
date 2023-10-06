@@ -27,7 +27,7 @@ const logs = useSelector(logginA)
     </button>
     <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
       <div className="offcanvas-header">
-        <h5 className="offcanvas-title" id="offcanvasLabel">Aperture</h5>
+        <h5 className="offcanvas-title" id="offcanvasLabel">MedHub</h5>
         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div className="offcanvas-body">
@@ -35,7 +35,7 @@ const logs = useSelector(logginA)
           <li className="nav-item"><a className="nav-link" href="#">
             <svg className="bi" width="24" height="24"><use xlinkHref="#aperture"></use></svg>
           </a></li>
-          <li className="nav-item  pt-2 px-2"><Link className="nav-link"  to='/admin'>Home</Link></li>
+          <li className="nav-item  pt-2 px-2" ><Link className="nav-link"  to='/admin'>Home</Link></li>
 
           <li className="nav-item"><a className="nav-link" href="#">
             {/* <svg className="bi" width="24" height="24"><use xlinkHref="#cart"></use></svg> */}

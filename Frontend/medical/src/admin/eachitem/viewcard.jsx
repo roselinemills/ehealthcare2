@@ -9,7 +9,7 @@ function ViewCard({product}) {
   console.log(navigate)
    return ( <div>
 
-<div onClick={()=>{navigate('each',{state:{e}})}} >
+<div onClick={()=>{navigate('',{state:{e}})}} >
     <ProductCard product={product}/>
 </div>
         <div className="d-flex  justify-content-between  py-3 px-2" style={{width:"14em"}}>
