@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import account from "../../services/account";
 import { useDispatch } from "react-redux";
-import { logginA } from "../../features/details";
+import { alogin, logginA, selectAdmin } from "../../features/details";
 
 
 
@@ -67,11 +67,12 @@ function LoginAdmin () {
             setSpin(true);
             try {
               const response = await account.adminLog(inputs);
-              dispatch( logginA(response.data));
+
+              dispatch( alogin(response?.data));
               setSucces(!success);
-              navigate("/");
+              navigate("/admin");
             } catch (error) {
-              setError(error.response.data);
+              setError(error.response?.data);
             } finally {
               setSpin(false);
               setSucces(false);

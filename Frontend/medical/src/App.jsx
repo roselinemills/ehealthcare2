@@ -23,12 +23,14 @@ import AuthProvider from './util/auth'
 import LogProvider from './util/lauth'
 import Cart from './user/cart'
 import Payment from './user/payment'
+import CartAuth from './util/cartAuth'
 
 function App() {
 
   let logged = useSelector(loggin);
 
   let alogged = useSelector(logginA)
+  console.log(useSelector(selectAdmin))
   // let navigate = useNavigate()
 
 
@@ -38,26 +40,30 @@ const router =createBrowserRouter(
     <Route>
       <Route>
         <Route element={<Admin/>} path='/admin'>
+
+          <Route element={<AuthProvider/>}>
           <Route element={<AdminLanding/> } index></Route>
           <Route element={<AddItem/>} path='store'></Route>
-          {alogged?"":<Route element={<LoginAdmin/>} path='login'></Route>}
-          {alogged?"":<Route element={<SignupAdmin/>} path='create'></Route>}
           <Route  path='viewall'>
 
             <Route element={<ViewItem/>} index></Route>
             <Route element={<EachPro/>} path="each"></Route>
             <Route element={<UpdateItem/>} path="edit"></Route>
-            {/* <Route element={<AuthProvider/>}>
-            </Route> */}
 
           </Route>
+            </Route>
+
+          {alogged?"":<Route element={<LoginAdmin/>} path='login'></Route>}
+          {alogged?"":<Route element={<SignupAdmin/>} path='create'></Route>}
         </Route>
         <Route element={<UserPage/>} path='/'>
           <Route element={<UserLanding/>} index></Route>
           <Route element={<ViewItems/>} path="eachitem"></Route>
           <Route element={<Cart/>} path='cart'></Route>
-          <Route element={<Payment />} path='epay'></Route>
 
+<Route element={<CartAuth/>}>
+<Route element={<Payment />} path='epay'></Route>
+</Route>
           <Route element={<LogProvider/>}>
           <Route element={<LoginUser/>} path='login'></Route>
           <Route element={<SignupUser/>} path='create'></Route>

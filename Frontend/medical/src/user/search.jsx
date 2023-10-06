@@ -17,7 +17,7 @@ function Search({setSearchTerm,searchTerm}) {
     return (  <div>
         <div >
 
-        <div className="input-group mb-3 r" style={{maxWidth:"30em"}}>
+        <div className="input-group mb-3 r px-2" >
       <input
         type="text"
         className="form-control"
@@ -27,11 +27,11 @@ function Search({setSearchTerm,searchTerm}) {
       />
       <div className="input-group-append">
         <button
-          className="btn btn-primary"
+          className="btn btn-primary px-2"
           type="button"
-        //   onClick={handleSearch}
+        style={{width:'2em'}}
         >
-          Search
+          <i className="bi bi-search"></i>
         </button>
       </div>
     </div>

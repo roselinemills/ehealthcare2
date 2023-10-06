@@ -1,5 +1,5 @@
 function NewCard({product}) {
-console.log(product)
+
     return (  <div className="d-flex justify-content-between align-items-center py-4 px-2" style={{}}>
         <div className="text-center" style={{width:""}} >        <div  >
 

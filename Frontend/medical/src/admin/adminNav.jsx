@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { alogout, logginA } from "../features/details";
 
 function AdminNav() {
   let navigate =useNavigate()
+  const dispatch = useDispatch()
+const logs = useSelector(logginA)
   const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
 
   const toggleOffcanvas = () => {
@@ -36,8 +40,15 @@ function AdminNav() {
           <li className="nav-item"><a className="nav-link" href="#">
             {/* <svg className="bi" width="24" height="24"><use xlinkHref="#cart"></use></svg> */}
             <div className="d-flex flex-column flex-lg-row">
+            <div className="d-flex flex-column flex-lg-row">
+           {!logs? <>
             <div> <button className="btn" onClick={()=>navigate('login')}>Login</button></div>
               <div> <button className="btn" onClick={()=>navigate('create')}>Signup</button></div>
+        </> :
+            <div> <button className="btn" onClick={()=>{
+                dispatch(alogout(null))
+                navigate('login')}}>Logout</button></div>}
+            </div>
 
             </div>
           </a></li>

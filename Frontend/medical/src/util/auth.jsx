@@ -5,7 +5,7 @@ import { logginA } from "../features/details";
 
 function AuthProvider() {
 const user = useSelector(logginA)
-    return user ? <Outlet/> : <Navigate to='/login'/>
+    return user ? <Outlet/> : <Navigate to='login'/>
 }
 
 

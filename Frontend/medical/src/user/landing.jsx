@@ -25,6 +25,12 @@ function UserLanding() {
     };
     fetchAll();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]); // Include cartItems as a dependency here
+
+
   const modelHandler = () => {
     setShow(!show);
   };
@@ -74,9 +80,9 @@ function UserLanding() {
       <div>
         <div>
           <div>
-            <div className="d-flex justify-content-around ">
+            <div className="d-flex justify-content-around  text-center">
               <div className="d-flex justify-content-center ">
-                <div style={{ width: "30em" }}>
+                <div style={{ width: "20em" }}>
                   <Search
                     setSearchTerm={setSearchTerm}
                     searchTerm={searchTerm}
@@ -89,16 +95,16 @@ function UserLanding() {
               <div>
                 <button
                   style={{
-                    width: "5em",
+                    width: "3em",
                     height: "2em",
-                    fontSize: "1.5em",
+                    fontSize: "1.2em",
                     border: "none",
                     background: "#ff9f1c",
-                    color: "white",
+                    color: "#ffff",
                   }}
                   onClick={() => modelHandler()}
                 >
-                  <i className="bi bi-cart4"></i>{" "}
+                  <i className="bi bi-cart4 my-2"><span >{cartItems.length}</span> </i>{" "}
                 </button>
               </div>
             </div>

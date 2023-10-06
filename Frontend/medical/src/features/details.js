@@ -35,16 +35,31 @@ reducers:{
         state.alog=true
     },
     addCart:(state,action)=>{
-        state.cart =action.payload
+        // const isItemInCart = state.cart.find((cartItem) => cartItem.id === action.payload.id);
+
+        // if (isItemInCart) {
+        //   state.cart =state.cart.map((cartItem) =>
+        //       cartItem.id === action.payload.id
+        //         ? { ...cartItem, quantity: cartItem.quantity + 1 }
+        //         : cartItem
+        //     )
+
+        // } else {
+        //   state.cart.push( { ...action.payload, quantity: 1 });
+        // }
+
+
+
+         state.cart =action.payload
     }
 }
 })
 
-export const {login,logout,setTokens,logged,addCart} = userInfo.actions
+export const {login,logout,setTokens,logged,addCart,alogin,alogout} = userInfo.actions
 export const selectUser =(state)=>state.user.user
 export const loggin =(state)=> state.user.logged
 export const selectAdmin =(state)=>state.user.admin
 export const logginA =(state)=> state.user.alog
-export const cartin =(state)=> state.user.addCart
+export const cartin =(state)=> state.user.cart
 
 export default userInfo.reducer;
