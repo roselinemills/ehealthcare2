@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import { v4 as uuid } from 'uuid';
 
 
 function Payment() {
+  const [cartItems, setCartItems] = useState(
+    localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : []
+  );
+
+
     const[change,setChange] = useState(false)
     const[data,setdata] = useState()
     const unique_id = uuid();
@@ -20,7 +27,11 @@ function Payment() {
       formState: { errors },
     } = useForm();
 
-    console.log(errors)
+    useEffect(() => {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems]);
+
+
     return ( <div>
         {!change? <div className="d-flex justify-content-center px-5 pt-5 py-5">
 
@@ -126,6 +137,7 @@ function Payment() {
           <button className="w-100 btn btn-primary btn-lg" onClick={handleSubmit((data)=>{
             setdata(data)
             setChange(true)
+            setCartItems([]);
             console.log(data)
           })} >PAY {info.state.figure}</button>
         </form>

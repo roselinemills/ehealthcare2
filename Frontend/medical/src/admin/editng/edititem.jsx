@@ -129,9 +129,10 @@ function EditInput({ product }) {
             onClick={async (e) => {
               e.preventDefault();
               setSpin(true);
+
               try {
                 await productLink.getupdate(product?.id, inputs);
-                navigate("viewall");
+                navigate("/admin/viewall");
               } catch (error) {
                 console.log("Error in Upadating Data");
               } finally {

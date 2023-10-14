@@ -19,7 +19,7 @@ function ViewCard({product}) {
           </button>
         </div>
         <div>
-          <button className='btn aviewbtn' style={{fontSize:'0.9em',border:'1px solid #b40603', color:'#b40603' }}  onClick={async()=>{await productLink.getdelete(1)}}>
+          <button className='btn aviewbtn' style={{fontSize:'0.9em',border:'1px solid #b40603', color:'#b40603' }}  onClick={async()=>{await productLink.getdelete(e.id)}}>
             Delete
           </button>
         </div>

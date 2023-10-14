@@ -19,7 +19,7 @@ app.use("/product", routes.transaction);
 
 const server = http.createServer(app);
 
-sequelize.sync({ alter: true }).then(() => {
+sequelize.sync({ alter: false }).then(() => {
   server.listen(Port);
   server.on("listening", () => {
     console.log(`Listening on Port ${Port}`);

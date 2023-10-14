@@ -3,9 +3,9 @@ const {Product} = require("../models")
 module.exports={
     async getAll(req,res){
 try {
-    console.log(req.body)
+
     const products = await Product.findAll()
-    console.log(products)
+
     res.status(200).send({items:products})
 } catch (error) {
     res.status(500).send({
@@ -52,10 +52,12 @@ console.log(error)
     },
     async getUpdate(req,res){
         try {
-            await Product.Update(req.body,{where:{id:req.params.id}})
+            await Product.update(req.body,{where:{id:req.params.id}})
+
             res.send("Update was Successful")
         } catch (error) {
 res.send("Update was Unsucessful")
+
 
         }
     },
@@ -65,6 +67,7 @@ res.send("Update was Unsucessful")
             res.send("Deletion was succesful")
         } catch (error) {
 res.send("Deletion was unsuccessful")
+console.log(error)
         }
     }
 }
