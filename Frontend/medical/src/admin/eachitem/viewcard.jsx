@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function ViewCard({product}) {
   const navigate = useNavigate()
   let e = product
-  console.log(navigate)
+
    return ( <div>
 
 <div onClick={()=>{navigate('',{state:{e}})}} >
@@ -19,8 +19,9 @@ function ViewCard({product}) {
           </button>
         </div>
         <div>
-          <button className='btn aviewbtn' style={{fontSize:'0.9em',border:'1px solid #b40603', color:'#b40603' }}  onClick={async()=>{await productLink.getdelete(e.id)}}>
-            Delete
+          <button className='btn aviewbtn' style={{fontSize:'0.9em',border:'1px solid #b40603', color:'#b40603' }}  onClick={async()=>{await productLink.getdelete(e.id)
+          location.reload()}}>
+            <i className="bi bi-trash3"></i>
           </button>
         </div>
 

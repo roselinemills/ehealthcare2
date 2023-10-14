@@ -29,7 +29,7 @@ function App() {
 
 
   let alogged = useSelector(logginA)
-  console.log(useSelector(selectAdmin))
+
 
 const router =createBrowserRouter(
   createRoutesFromElements(
