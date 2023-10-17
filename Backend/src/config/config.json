@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Aragami4",
-    "database": "health_store",
+    "database": "ehealthcare",
     "host": "127.0.0.1",
     "dialect": "mysql"
    }
